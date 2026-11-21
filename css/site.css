@@ -1864,4 +1864,5 @@ body { transition: background-color 300ms, color 300ms; }
   .p-sec:first-child .p-sec__body p:first-child { font-size: 14px; line-height: 1.55; max-width: none; letter-spacing: 0; }
   .p-sec:first-child .p-sec__body p:first-child { font-size: 15px; }
   .p-sub { font-size: 15px; }
+  .p-sec .p-sec__body, .p-sec:first-child .p-sec__body { grid-column: 1 / -1 !important; }
 }
