@@ -1,0 +1,65 @@
+/* =====================================================================
+   THEME — 修改颜色与字体只需要改这一个文件。
+   Layout concept: a specimen table seen from above, catalogued like an
+   archive. Objects on plinths, accession numbers on tags, type printed
+   on the floor.
+   ===================================================================== */
+
+:root {
+  /* Colour ---------------------------------------------------------- */
+  --paper:   #E7E6E1;   /* warm light grey: the table, the page        */
+  --paper-2: #DCDAD3;   /* one step darker: wells, image backgrounds   */
+  --paper-3: #F4F3EF;   /* tag card / lifted surfaces                  */
+  --ink:     #131313;   /* text, rules                                  */
+  --ink-2:   #5B5954;   /* secondary text                               */
+  --ink-3:   #8C8A84;   /* tertiary text, disabled                      */
+  --blue:    #3A4876;   /* muted ink blue: action, focus, "touch"       */
+  --orange:  #FF5A1A;   /* signal orange: hover info, highlights        */
+  --line:    rgba(19, 19, 19, 0.16);
+  --line-strong: rgba(19, 19, 19, 0.5);
+
+  /* Type ------------------------------------------------------------ */
+  /* Display: Anybody is a variable face with a width axis (wdth 50–150);
+     the site stretches and squeezes it on hover. */
+  --font-display: 'Archivo', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Type scale (fluid) */
+  --t-mega:  clamp(52px, 10vw, 172px);
+  --t-xxl:   clamp(36px, 5.4vw, 92px);
+  --t-xl:    clamp(28px, 3.4vw, 54px);
+  --t-l:     clamp(20px, 1.9vw, 29px);
+  --t-m:     clamp(15px, 1.05vw, 17px);
+  --t-s:     15px;
+  --t-xs:    12px;
+
+  /* Space & grid ---------------------------------------------------- */
+  --gutter: max(16px, min(3.2vw, 40px));
+  --gap: clamp(14px, 1.8vw, 28px);
+  --nav-h: 56px;
+  --max: 1680px;
+
+  /* Motion ---------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-snap: cubic-bezier(0.7, 0, 0.2, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+
+  color-scheme: light;
+}
+
+/* The whole site sits on warm white with near-black grey type. */
+:root.theme-dark {
+  --paper:   #F4F1EA;   /* warm white page                     */
+  --paper-2: #E9E5DC;   /* wells, image backgrounds            */
+  --paper-3: #FBF9F4;   /* lifted surfaces                     */
+  --ink:     #2A2927;   /* near-black grey text                */
+  --ink-2:   #67635C;
+  --ink-3:   #9C978E;
+  --blue:    #3A4876;
+  --orange:  #E2541A;
+  --line: rgba(42, 41, 39, 0.16);
+  --line-strong: rgba(42, 41, 39, 0.5);
+  color-scheme: light;
+}

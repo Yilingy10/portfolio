@@ -1,0 +1,70 @@
+/* =====================================================================
+   PLAYGROUND — 首页的构图。
+   ---------------------------------------------------------------------
+   坐标：u = 左右（-1 左边缘，1 右边缘），v = 上下（-1 底边，1 顶边）
+   s     : 物体最长边的大小（1 = 半个屏幕高度）
+   z     : 前后（越大越靠前）
+   rx/ry/rz : 旋转（弧度）
+   mobile: 手机竖屏时的位置
+   kind  : letter 名字的字母（纸片）/ paper 纸片 / toy 小玩具 / object 立体物件
+           —— 决定拖动时的手感
+   ===================================================================== */
+export const collage = [
+  { key: 'letter-1', kind: 'letter', char: 'Y', project: 'mammals-with-headgear', label: 'Y', note: 'Letter cut from the brochure cover, a skull', image: 'assets/play/letter-01.webp',
+    at: { u: -0.688, v: 0.292, s: 0.614, z: 0, rz: -0.083 },
+    mobile: { u: -0.575, v: 0.371, s: 0.314, z: 0, rz: -0.083 } },
+  { key: 'letter-2', kind: 'letter', char: 'I', project: 'between-museum-and-park', label: 'I', note: 'Letter cut from the Bark & Brass typeface', image: 'assets/play/letter-02.webp',
+    at: { u: -0.407, v: 0.395, s: 0.327, z: 0, rz: -0.125 },
+    mobile: { u: -0.051, v: 0.418, s: 0.167, z: 0, rz: -0.125 } },
+  { key: 'letter-3', kind: 'letter', char: 'L', project: 'mammals-with-headgear', label: 'L', note: 'Letter cut from the brochure title', image: 'assets/play/letter-03.webp',
+    at: { u: -0.226, v: 0.261, s: 0.432, z: 0, rz: -0.033 },
+    mobile: { u: 0.288, v: 0.357, s: 0.221, z: 0, rz: -0.033 } },
+  { key: 'letter-4', kind: 'letter', char: 'I', project: 'mammals-with-headgear', label: 'I', note: 'Letter cut from the brochure, a bone', image: 'assets/play/letter-04.webp',
+    at: { u: -0.038, v: 0.341, s: 0.509, z: 0, rz: -0.108 },
+    mobile: { u: -0.006, v: 0.134, s: 0.253, z: 0, rz: -0.083 } },
+  { key: 'letter-5', kind: 'letter', char: 'N', project: 'home-in-small-moments', label: 'N', note: 'Letter cut from an embroidered tablecloth', image: 'assets/play/letter-05.webp',
+    at: { u: 0.132, v: 0.223, s: 0.308, z: 0, rz: -0.136 },
+    mobile: { u: 0.296, v: 0.083, s: 0.154, z: 0, rz: -0.125 } },
+  { key: 'letter-6', kind: 'letter', char: 'G', project: 'between-museum-and-park', label: 'G', note: 'Letter cut from the Bark & Brass typeface', image: 'assets/play/letter-06.webp',
+    at: { u: 0.343, v: 0.359, s: 0.455, z: 0, rz: -0.031 },
+    mobile: { u: 0.682, v: 0.143, s: 0.227, z: 0, rz: -0.033 } },
+  { key: 'letter-7', kind: 'letter', char: 'Y', project: 'between-museum-and-park', label: 'Y', note: 'Letter cut from the Bark & Brass typeface', image: 'assets/play/letter-07.webp',
+    at: { u: -0.052, v: -0.402, s: 0.525, z: 0, rz: -0.083 },
+    mobile: { u: -0.579, v: -0.127, s: 0.245, z: 0, rz: -0.083 } },
+  { key: 'letter-8', kind: 'letter', char: 'A', project: 'the-spiritual-journey', label: 'A', note: 'Letter cut from the game’s start screen', image: 'assets/play/letter-08.webp',
+    at: { u: 0.245, v: -0.476, s: 0.344, z: 0, rz: -0.125 },
+    mobile: { u: -0.074, v: -0.157, s: 0.16, z: 0, rz: -0.125 } },
+  { key: 'letter-9', kind: 'letter', char: 'N', project: 'between-museum-and-park', label: 'N', note: 'Letter cut from the Bark & Brass typeface', image: 'assets/play/letter-09.webp',
+    at: { u: 0.499, v: -0.352, s: 0.441, z: 0, rz: -0.033 },
+    mobile: { u: 0.36, v: -0.106, s: 0.205, z: 0, rz: -0.033 } },
+  { key: 'letter-10', kind: 'letter', char: 'G', project: 'home-in-small-moments', label: 'G', note: 'Letter cut from an embroidered tablecloth', image: 'assets/play/letter-10.webp',
+    at: { u: 0.72, v: -0.453, s: 0.31, z: 0, rz: -0.108 },
+    mobile: { u: 0.736, v: -0.147, s: 0.144, z: 0, rz: -0.108 } },
+  { key: 'tangram', kind: 'object', project: 'between-museum-and-park', label: 'Bark & Brass', note: 'Tangram of seven materials', shape: 'tangram',
+    at: { u: 0.66, v: 0.72, s: 0.38, z: -0.25, rx: 0.95, rz: -0.12 },
+    mobile: { u: -0.628, v: 0.74, s: 0.213, z: -0.25, rx: 0.95, rz: -0.1 } },
+  { key: 'record', kind: 'object', project: 'rhythm-of-solar-term', label: 'Rhythm of Solar Term', note: 'Vinyl record, 24 terms', record: 3,
+    at: { u: 0.819, v: 0.44, s: 0.44, z: -0.2, rx: 0.95, rz: 0.25 },
+    mobile: { u: -0.115, v: 0.65, s: 0.191, z: -0.2, rx: 0.95, rz: 0.25 } },
+  { key: 'friend-spiky', kind: 'toy', project: 'the-spiritual-journey', label: 'The Spiritual Journey', note: 'Imaginary friend', image: 'friend-spiky-lg.webp',
+    at: { u: 0.75, v: 0.29, s: 0.3, z: 0.2 },
+    mobile: { u: 0.692, v: 0.57, s: 0.104, z: 0.1 } },
+  { key: 'goat', kind: 'paper', project: 'eco-harmony-with-shu', label: 'Eco Harmony with Shu', note: 'Drawing of a Shu animal', image: 'animal-09.webp',
+    at: { u: -0.606, v: 0.69, s: 0.25, z: 0.15, rz: 0.1 },
+    mobile: { u: -0.654, v: 0.56, s: 0.124, z: 0.15, rz: 0.1 } },
+  { key: 'book', kind: 'object', project: 'a-day-in-dongba', label: 'A Day in Dongba', note: 'Book, 3D-printed cover', shape: 'spiralbook', cover: 'assets/models/a-day-in-dongba/cover.mesh.json', back: 'assets/models/a-day-in-dongba/back-cover.mesh.json', page: 'cover-art.webp', opens: true,
+    at: { u: -0.8, v: -0.52, s: 0.42, z: 0.1, rx: 0.62, rz: -0.1 },
+    mobile: { u: -0.526, v: -0.35, s: 0.338, z: 0.1, rx: 0.62, rz: -0.1 } },
+  { key: 'patch', kind: 'paper', project: 'home-in-small-moments', label: 'Home in Small Moments', note: 'Embroidered tablecloth', patch: 10,
+    at: { u: -0.52, v: -0.12, s: 0.24, z: 0.05, rz: 0.12 },
+    mobile: { u: 0.077, v: -0.375, s: 0.191, z: 0.05, rz: 0.12 } },
+  { key: 'sponge', kind: 'object', project: 'euplectella-aspergillum', label: 'Euplectella aspergillum', note: 'Sculpture with LEDs', shape: 'mesh', height: 1, lights: 'sponge', parts: [{ src: 'assets/models/euplectella-aspergillum/sponge-lite.mesh.json', look: 'sponge' }],
+    at: { u: -0.59, v: -0.53, s: 0.46, z: 0.12, ry: 0.5, rx: 0.1 },
+    mobile: { u: 0.667, v: -0.36, s: 0.225, z: 0.12, ry: 0.5, rx: 0.1 } },
+  { key: 'friend-jelly', kind: 'toy', project: 'the-spiritual-journey', label: 'The Spiritual Journey', note: 'Imaginary friend', image: 'friend-jelly-lg.webp',
+    at: { u: -0.45, v: -0.18, s: 0.2, z: 0.25 },
+    mobile: { u: 0.256, v: -0.485, s: 0.107, z: 0.25 } },
+  { key: 'fish', kind: 'paper', project: 'eco-harmony-with-shu', label: 'Eco Harmony with Shu', note: 'Drawing of a Shu animal', image: 'animal-12.webp',
+    at: { u: 0.9, v: -0.5, s: 0.26, z: 0.15, rz: 0.1 },
+    mobile: { u: -0.603, v: -0.52, s: 0.169, z: 0.15, rz: 0.1 } },
+];

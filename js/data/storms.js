@@ -1,0 +1,26 @@
+/* The 22 hurricanes. x / y = where each name circle sits on the landfall map (percent).
+   card = the cropped sculpture card in assets/work/hurricanes/storms/ */
+export const storms = [
+  { name: 'Andrew', year: 1992, trait: 'Compact, Early prototype', x: 61.5, y: 79.8 },
+  { name: 'Opal', year: 1995, trait: 'Fluctuating, Irregular', x: 47.4, y: 58.2 },
+  { name: 'Floyd', year: 1999, trait: 'Wide, Weak core', x: 60.2, y: 43.5 },
+  { name: 'Isabel', year: 2003, trait: 'Symmetrical, Stable', x: 70.0, y: 36.7 },
+  { name: 'Ivan', year: 2004, trait: 'Long-lived, Wide spiral', x: 39.2, y: 53.5 },
+  { name: 'Charley', year: 2004, trait: 'Zigzag path, Asymmetric', x: 47.3, y: 69.0 },
+  { name: 'Katrina', year: 2005, trait: 'Powerful, Concentrated', x: 32.9, y: 82.7 },
+  { name: 'Rita', year: 2005, trait: 'Rapid intensification', x: 28.5, y: 48.6 },
+  { name: 'Wilma', year: 2005, trait: 'Extreme eye, Compact', x: 56.8, y: 72.2 },
+  { name: 'Ike', year: 2008, trait: 'Broad, Loose', x: 19.7, y: 55.3 },
+  { name: 'Sandy', year: 2012, trait: 'Hybrid, Mixed airflows', x: 70.0, y: 14.1 },
+  { name: 'Harvey', year: 2017, trait: 'Heavy rainfall, Stagnant', x: 7.6, y: 62.5 },
+  { name: 'Irma', year: 2017, trait: 'Perfect symmetry', x: 51.2, y: 88.4 },
+  { name: 'Maria', year: 2017, trait: 'Concentric, Balanced', x: 65.9, y: 58.6 },
+  { name: 'Michael', year: 2018, trait: 'Sudden intensification', x: 48.8, y: 43.7 },
+  { name: 'Dorian', year: 2019, trait: 'Stationary, Extreme', x: 83.2, y: 29.2 },
+  { name: 'Laura', year: 2020, trait: 'Short-lived, Fading', x: 31.2, y: 62.4 },
+  { name: 'Ida', year: 2021, trait: 'Flooding, Rainfall-focused', x: 36.1, y: 70.8 },
+  { name: 'Ian', year: 2022, trait: 'Multi-landfall, Turning', x: 54.2, y: 56.3 },
+  { name: 'Hilary', year: 2023, trait: 'Pacific rare path', x: 81.8, y: 70.0 },
+  { name: 'Lee', year: 2023, trait: 'High-latitude, Persistent', x: 10.9, y: 94.5 },
+  { name: 'Beryl', year: 2024, trait: 'Record early, Chaotic', x: 24.2, y: 72.5 },
+];
