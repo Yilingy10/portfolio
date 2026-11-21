@@ -68,10 +68,10 @@ async function go() {
   wipe.querySelector('.wipe__no').textContent = no;
   wipe.querySelector('.wipe__label').textContent = title;
   const ease = 'cubic-bezier(.7,0,.2,1)';
-  await wipe.animate([{ transform: 'translateX(-101%)' }, { transform: 'translateX(0)' }], { duration: 380, easing: ease, fill: 'forwards' }).finished;
+  await wipe.animate([{ transform: 'translateX(-101%)' }, { transform: 'translateX(0)' }], { duration: 250, easing: ease, fill: 'forwards' }).finished;
   render(route);
-  await new Promise((r) => setTimeout(r, 120));
-  await wipe.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(101%)' }], { duration: 420, easing: ease, fill: 'forwards' }).finished;
+  await new Promise((r) => setTimeout(r, 70));
+  await wipe.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(101%)' }], { duration: 280, easing: ease, fill: 'forwards' }).finished;
   wipe.animate([{ transform: 'translateX(-101%)' }], { duration: 0, fill: 'forwards' });
 }
 
