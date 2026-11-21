@@ -99,16 +99,22 @@ export function renderArchive(root, initial = '') {
     const gap = parseFloat(getComputedStyle(grid).columnGap) || 24;
     const narrow = W < 560;
     const target = narrow ? 200 : W < 1000 ? 300 : Math.min(470, W / 3.1);
-    const per = narrow ? 0 : W < 1000 ? 2 : 3;
+    const perWide = W < 1000 ? 2 : 3;
     const cards = [...grid.children];
     // group into rows per year, then justify each row to the full width
     const groups = [[]];
     cards.forEach((el) => {
-      if (el.classList.contains('year-break')) { if (groups[groups.length - 1].length) groups.push([]); return; }
+      if (el.classList.contains('year-break')) {
+        if (groups[groups.length - 1].length) groups.push([]);
+        groups[groups.length - 1].sel = el.classList.contains('year-break--sel');
+        return;
+      }
       const ratio = Math.min(3.1, Math.max(0.6, ratios.get(el.dataset.slug) || 4 / 3));
       groups[groups.length - 1].push({ el, ratio });
     });
     groups.forEach((items) => {
+      // phones: selected works one per row, everything else two per row
+      const per = narrow ? (items.sel ? 1 : 2) : perWide;
       const rows = [[]];
       items.forEach((it) => {
         const row = rows[rows.length - 1];
@@ -129,7 +135,13 @@ export function renderArchive(root, initial = '') {
         if (ri === rows.length - 1 && per && row.length < per) hgt = Math.min(hgt, prev);
         else if (ri === rows.length - 1 && hgt > target * 1.3) hgt = target;
         prev = hgt;
-        row.forEach((r) => { r.el.style.width = `${Math.floor(r.ratio * hgt)}px`; r.el.querySelector('.card__media').style.height = `${Math.floor(hgt)}px`; });
+        if (narrow && per === 2) {
+          const cw = Math.floor((W - gap) / 2);
+          row.forEach((r) => { r.el.style.width = `${cw}px`; r.el.querySelector('.card__media').style.height = `${Math.floor(cw * 0.8)}px`; });
+          return;
+        }
+        if (per === 1) hgt = W / Math.min(1.8, Math.max(1.15, row[0].ratio));
+        row.forEach((r) => { if (per === 1) { r.el.style.width = `${Math.floor(W)}px`; r.el.querySelector('.card__media').style.height = `${Math.floor(hgt)}px`; return; } r.el.style.width = `${Math.floor(r.ratio * hgt)}px`; r.el.querySelector('.card__media').style.height = `${Math.floor(hgt)}px`; });
       });
     });
   }

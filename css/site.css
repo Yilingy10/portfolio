@@ -1853,3 +1853,15 @@ body { transition: background-color 300ms, color 300ms; }
 .project .p-meta { margin-top: clamp(12px, 1.6vw, 22px); padding-top: 10px; }
 .project .p-meta dt { margin-bottom: 2px; }
 .project .p-hero { margin-top: clamp(14px, 1.8vw, 26px); }
+
+/* phones: smaller, easier overview text */
+@media (max-width: 760px) {
+  .p-text { margin-top: 28px; gap: 22px; }
+  .p-sec { row-gap: 8px; }
+  .p-sec__body { gap: .75em; }
+  .p-sec__body p, .p-sec p,
+  .p-sec:first-child .p-sec__body p,
+  .p-sec:first-child .p-sec__body p:first-child { font-size: 14px; line-height: 1.55; max-width: none; letter-spacing: 0; }
+  .p-sec:first-child .p-sec__body p:first-child { font-size: 15px; }
+  .p-sub { font-size: 15px; }
+}
