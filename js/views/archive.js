@@ -37,7 +37,7 @@ export function renderArchive(root, initial = '') {
 
   const grid = h('ol', { class: 'jgrid', 'aria-live': 'polite' });
 
-  const STILL = new Set(['mammals-with-headgear', 'puhpowee', 'frozen-flow', 'the-spiritual-journey', 'we-refuse-to-be-comfortable', 'hurricanes', 'i-think-i-understand-you', 'can-dongba-order-coffee', 'between-museum-and-park', 'rhythm-of-solar-term', 'eco-harmony-with-shu', 'trail-of-shu', 'a-day-in-dongba']);
+  const STILL = new Set(['mammals-with-headgear', 'puhpowee', 'frozen-flow', 'the-spiritual-journey', 'we-refuse-to-be-comfortable', 'hurricanes', 'i-think-i-understand-you', 'between-museum-and-park', 'rhythm-of-solar-term', 'eco-harmony-with-shu', 'trail-of-shu', 'a-day-in-dongba']);
 
   // a few images from inside the project, for the hover scrub
   function previews(p) {

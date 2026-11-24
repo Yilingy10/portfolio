@@ -62,23 +62,37 @@ export function renderProject(root, p) {
     : h('div', { class: 'p-hero bleed' }, img(p.cover, 'lg', true));
 
   /* text */
-  const secs = SECTIONS.filter(([k]) => p[k] && p[k].trim());
-  const sec = ([k, label], i) =>
-    h('section', { class: 'p-sec' }, h('h2', { class: 'mono' }, h('span', {}, `0${i + 1}`), label), h('div', { class: 'p-sec__body' }, p[k].split(/\n\s*\n/).map((para) => h('p', {}, para.trim()))));
-  // only the overview is open; concept, process and outcome wait behind "Read more"
-  const rest = secs.slice(1);
-  const text = secs.length ? h('div', { class: 'p-text' }, sec(secs[0], 0),
-    rest.length ? h('details', { class: 'p-more' },
-      h('summary', { class: 'p-more__sum mono' }, h('span', { class: 'p-more__open' }, `Read more · ${rest.map(([, l]) => l).join(', ')}`), h('span', { class: 'p-more__close' }, 'Close')),
-      h('div', { class: 'p-more__body' }, rest.map((r, i) => sec(r, i + 1)))) : null) : null;
+  const textFor = (o, cls = 'p-text') => {
+    const secs = SECTIONS.filter(([k]) => o[k] && o[k].trim());
+    const sec = ([k, label], i) =>
+      h('section', { class: 'p-sec' }, h('h2', { class: 'mono' }, h('span', {}, `0${i + 1}`), label), h('div', { class: 'p-sec__body' }, o[k].split(/\n\s*\n/).map((para) => h('p', {}, para.trim()))));
+    // only the overview is open; concept, process and outcome wait behind "Read more"
+    const rest = secs.slice(1);
+    return secs.length ? h('div', { class: cls }, sec(secs[0], 0),
+      rest.length ? h('details', { class: 'p-more' },
+        h('summary', { class: 'p-more__sum mono' }, h('span', { class: 'p-more__open' }, `Read more · ${rest.map(([, l]) => l).join(', ')}`), h('span', { class: 'p-more__close' }, 'Close')),
+        h('div', { class: 'p-more__body' }, rest.map((r, i) => sec(r, i + 1)))) : null) : null;
+  };
+  const text = textFor(p);
 
   /* blocks */
-  let chapterNo = 0;
+  let chapterNo = 0, workNo = 0;
   const blocks = h('div', { class: 'blocks' }, (p.blocks || []).map((b, bi) => {
     switch (b.type) {
       case 'disc': return bi === 0 ? null : createDisc(b, (f) => src(f));
       case 'spreads': return createSpreads(b, (f) => src(f));
       case 'stickers': return createStickers(b, (f) => src(f));
+      case 'work': {
+        // a project that holds more than one work: a big divider per work, chapters count again inside it
+        chapterNo = 0;
+        workNo++;
+        return h('section', { class: 'p-work' },
+          h('div', { class: 'p-work__head' },
+            h('span', { class: 'mono' }, `Work ${String(workNo).padStart(2, '0')}`),
+            h('h2', {}, b.title),
+            b.medium ? h('p', { class: 'mono' }, b.medium) : null),
+          textFor(b, 'p-text p-work__text'));
+      }
       case 'chapter':
         chapterNo++;
         return h('div', { class: 'chapter' }, h('span', { class: 'mono' }, `Part ${String(chapterNo).padStart(2, '0')}`),

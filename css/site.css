@@ -1866,3 +1866,19 @@ body { transition: background-color 300ms, color 300ms; }
   .p-sub { font-size: 15px; }
   .p-sec .p-sec__body, .p-sec:first-child .p-sec__body { grid-column: 1 / -1 !important; }
 }
+
+/* projects that hold several works: one big divider per work */
+.p-work { margin-top: clamp(48px, 7vw, 120px); }
+.blocks > .p-work:first-child { margin-top: 0; }
+.p-work__head {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px var(--gap); align-items: baseline;
+  border-top: 3px solid var(--ink); padding-top: 14px;
+}
+.p-work__head .mono { grid-column: 1 / span 3; color: var(--blue); }
+.p-work__head h2 {
+  grid-column: 4 / -1; margin: 0; font-family: var(--font-display); font-weight: 850;
+  font-size: clamp(28px, 3.4vw, 56px); line-height: .92; letter-spacing: -.025em; font-variation-settings: 'wdth' 92;
+}
+.p-work__head p { grid-column: 4 / -1; margin: 4px 0 0; color: var(--ink-2); }
+.p-work__text { margin-top: clamp(20px, 2.4vw, 36px) !important; margin-bottom: clamp(10px, 1.6vw, 24px); }
+@media (max-width: 760px) { .p-work__head .mono, .p-work__head h2, .p-work__head p { grid-column: 1 / -1; } }

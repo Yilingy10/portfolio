@@ -15,6 +15,9 @@
 
 import { trailText as TRAIL_TEXT } from './trail-text.js';
 
+// files of Can Dongba Order Coffee?, now shown inside Living in Dongba
+const CF = (f) => `assets/work/can-dongba-order-coffee/${/\.[a-z0-9]{2,4}$/i.test(f) ? f : `${f}-lg.webp`}`;
+
 export const CATEGORIES = ['Graphic', 'Type', 'Objects', 'Editorial', 'Interactive'];
 
 /* SELECTED — Archive 默认最先展示的作品（按这个顺序）。改这里的 slug 即可。 */
@@ -256,32 +259,6 @@ The research is documented in an editorial publication that brings together visu
     ],
   },
   {
-    slug: 'can-dongba-order-coffee',
-    title: 'Can Dongba Order Coffee?',
-    year: 2026,
-    categories: ['Editorial'],
-    medium: 'Printed book and pictograph booklets',
-    summary: '',
-    cover: 'photo-cover',
-    previews: ['photo-cover', 'photo-chat', 'photo-everyday', 'photo-signs', 'photo-sunset', 'booklet-8241'],
-    color: '#1F8A8A',
-    overview: '', concept: '', process: '', outcome: '',
-    blocks: [
-      { type: 'chapter', title: 'Can You Read an Image?', text: 'Turn the pages, or open any spread in full.' },
-      { type: 'book', pages: Array.from({ length: 20 }, (_, i) => `page-${String(({ 18: 2, 19: 3 })[i + 1] || i + 1).padStart(2, '0')}.webp`) }, // pages 18 and 19 repeat pages 2 and 3
-      { type: 'chapter', title: 'The printed book' },
-      { type: 'image', src: 'photo-sunset', layout: 'bleed' },
-      { type: 'duo', images: ['photo-cover-flat', 'photo-read'] },
-      { type: 'row', images: ['photo-signs', 'photo-seven', 'photo-everyday'] },
-      { type: 'duo', images: ['photo-bus', 'photo-chat'], flip: true },
-      { type: 'chapter', title: 'Pictograph booklets' },
-      { type: 'image', src: 'booklet-8253', layout: 'bleed' },
-      { type: 'row', images: ['booklet-8224', 'booklet-8232', 'booklet-8254'] },
-      { type: 'duo', images: ['booklet-8241', 'booklet-8245'] },
-      { type: 'image', src: 'booklet-8252', layout: 'inset' },
-    ],
-  },
-  {
     slug: 'mammals-with-headgear',
     title: 'What Can You Learn from a Skull?',
     subtitle: 'Mammals with Headgear',
@@ -313,20 +290,23 @@ The research is documented in an editorial publication that brings together visu
     ],
   },
   {
+    // two works in one project: A Day in Dongba + Can Dongba Order Coffee? (its files stay in their own folder)
     slug: 'a-day-in-dongba',
-    title: 'A Day in Dongba',
+    title: 'Living in Dongba',
     year: 2026,
     categories: ['Editorial', 'Objects'],
-    medium: 'Spiral-bound book with a 3D-printed cover; photography and collage',
-    summary: 'Dongba characters turned into human actions and everyday objects to document a day in my life.',
+    medium: 'Spiral-bound book with a 3D-printed cover; printed book and pictograph booklets',
+    summary: 'Two books that bring Dongba pictographs into everyday life.',
     cover: 'cover',
-    previews: ['cover', 'daybook-1157', 'daybook-1161', 'daybook-1154', 'daybook-1145', 'daybook-1141'],
+    previews: ['cover', 'daybook-1157', CF('photo-cover'), 'daybook-1161', CF('photo-signs'), CF('booklet-8241')],
     color: '#2FC7B5',
-    overview: `Transformed Dongba characters into human actions and everyday objects to document a day in my life.`,
-    concept: `To explore how unfamiliar writing is seen and recognized when placed in familiar everyday settings.`,
-    process: `Dongba Dictionary → Body and Object Imitation → Photography → Collage → Physical Book`,
-    outcome: `One viewer asked, "Where is the Dongba writing?" Visual connections that seem obvious to the designer may not be immediately recognized by viewers.`,
+    overview: '', concept: '', process: '', outcome: '',
     blocks: [
+      { type: 'work', title: 'A Day in Dongba', medium: 'Spiral-bound book with a 3D-printed cover; photography and collage',
+        overview: `Transformed Dongba characters into human actions and everyday objects to document a day in my life.`,
+        concept: `To explore how unfamiliar writing is seen and recognized when placed in familiar everyday settings.`,
+        process: `Dongba Dictionary → Body and Object Imitation → Photography → Collage → Physical Book`,
+        outcome: `One viewer asked, "Where is the Dongba writing?" Visual connections that seem obvious to the designer may not be immediately recognized by viewers.` },
       { type: 'chapter', title: 'The object', text: 'The 3D-printed cover and back, from the original STL files. Drag to turn it; hover to lift the cover.' },
       { type: 'object', shape: 'spiralbook', cover: 'assets/models/a-day-in-dongba/cover.mesh.json', back: 'assets/models/a-day-in-dongba/back-cover.mesh.json', page: 'cover-art.webp', poster: 'daybook-1135' },
       { type: 'chapter', title: 'The pages', text: 'Turn the pages, or open any spread in full.' },
@@ -336,6 +316,20 @@ The research is documented in an editorial publication that brings together visu
       { type: 'duo', images: ['daybook-1135', 'daybook-1139'] },
       { type: 'grid', book: true, columns: 4, images: ['spread-01', 'spread-02', 'spread-03', 'spread-04', 'spread-05', 'spread-06', 'spread-07', 'spread-08', 'spread-09', 'spread-10', 'spread-11'] },
       { type: 'duo', images: ['daybook-1161', 'daybook-1154'], flip: true },
+
+      { type: 'work', title: 'Can Dongba Order Coffee?', medium: 'Printed book and pictograph booklets' },
+      { type: 'chapter', title: 'Can You Read an Image?', text: 'Turn the pages, or open any spread in full.' },
+      { type: 'book', pages: Array.from({ length: 20 }, (_, i) => CF(`page-${String(({ 18: 2, 19: 3 })[i + 1] || i + 1).padStart(2, '0')}.webp`)) }, // pages 18 and 19 repeat pages 2 and 3
+      { type: 'chapter', title: 'The printed book' },
+      { type: 'image', src: CF('photo-sunset'), layout: 'bleed' },
+      { type: 'duo', images: [CF('photo-cover-flat'), CF('photo-read')] },
+      { type: 'row', images: [CF('photo-signs'), CF('photo-seven'), CF('photo-everyday')] },
+      { type: 'duo', images: [CF('photo-bus'), CF('photo-chat')], flip: true },
+      { type: 'chapter', title: 'Pictograph booklets' },
+      { type: 'image', src: CF('booklet-8253'), layout: 'bleed' },
+      { type: 'row', images: [CF('booklet-8224'), CF('booklet-8232'), CF('booklet-8254')] },
+      { type: 'duo', images: [CF('booklet-8241'), CF('booklet-8245')] },
+      { type: 'image', src: CF('booklet-8252'), layout: 'inset' },
     ],
   },
   /* ───────────────────────────── 2025 ───────────────────────────── */
